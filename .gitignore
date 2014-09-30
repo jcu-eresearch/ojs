@@ -6,3 +6,5 @@ files
 .project
 .buildpath
 .settings
+cache
+public
