@@ -7,3 +7,5 @@ files
 .buildpath
 .settings
 .DS_Store
+cache
+public
