@@ -88,9 +88,12 @@ class TemplateManager extends PKPTemplateManager {
 				$this->assign('enableAnnouncements', $journal->getSetting('enableAnnouncements'));
 				$this->assign(
 					'hideRegisterLink',
-					!$journal->getSetting('allowRegReviewer') &&
+					(!$journal->getSetting('allowRegReviewer') &&
 					!$journal->getSetting('allowRegReader') &&
-					!$journal->getSetting('allowRegAuthor')
+					!$journal->getSetting('allowRegAuthor')) ||
+					Validation::isReviewer() ||
+					Validation::isReader() ||
+					Validation::isAuthor()
 				);
 
 				// Load and apply theme plugin, if chosen

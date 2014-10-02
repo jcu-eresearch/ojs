@@ -17,10 +17,10 @@
 			<li id="userHome"><a href="{if $hasOtherJournals}{url journal="index" page="user"}{else}{url page="user"}{/if}">{translate key="navigation.userHome"}</a></li>
 		{else}
 			<li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
+		{/if}{* $isUserLoggedIn *}
 			{if !$hideRegisterLink}
 				<li id="register"><a href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
 			{/if}
-		{/if}{* $isUserLoggedIn *}
 
 		{if $siteCategoriesEnabled}
 			<li id="categories"><a href="{url journal="index" page="search" op="categories"}">{translate key="navigation.categories"}</a></li>
