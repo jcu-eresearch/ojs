@@ -1,0 +1,40 @@
+
+* Allow login via local accounts and Shibboleth authentication, simultaneously
+  
+  * Change locations where implicit_auth checks and implicitAuth variables exist
+
+* Add implicit auth login links (for Shibboleth login) to:
+
+  * User login block
+  * Login template
+  * User registration template
+
+* Restore change password links and fields on:
+
+  * User home
+  * User management page inside journals (for managers)
+
+* Add helper information to password change page about institutional login.
+  We can't determine how they logged in at this stage.
+
+* Display the Register link to people who are already logged in but aren't
+  already associated with a journal in some fashion.
+
+* Restructure the footer for the site.  Include a specific footer div that
+  contains both site-generated content and a custom JCU-footer.
+
+* Questions:
+
+  * Check registration/enrolment process.
+    * Can logged out users register?
+      * Yes, but no email validation notifcation instruction or but no "Welcome" banner on the index page...
+    * Can local users (existing) register?
+      * Yes (if logged in), no "Welcome" banner on the user page...
+   
+    * Can AAF members (eg anyone signed in) register?
+      * Yes!
+
+  * Check locations of auth checks for completeness
+  * Plugins: http://pkp.sfu.ca/ojs/docs/userguide/2.3.1/systemInstallingPlugins.html
+    * OAuth
+    * Social media blocks
