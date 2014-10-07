@@ -32,7 +32,7 @@ class Validation {
 		$valid = false;
 		$userDao =& DAORegistry::getDAO('UserDAO');
 
-		if ($implicitAuth) { // Implicit auth
+		if ($implicitAuth && !$username) { // Implicit auth, and not regular auth
 			if (!Validation::isLoggedIn()) {
 				PluginRegistry::loadCategory('implicitAuth');
 

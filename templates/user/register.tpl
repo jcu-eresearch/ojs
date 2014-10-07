@@ -17,7 +17,7 @@
 
 <p>{translate key="user.register.completeForm"}</p>
 
-{if !$implicitAuth}
+{if !$isUserLoggedIn}
 	{if !$existingUser}
 		{url|assign:"url" page="user" op="register" existingUser=1}
 		<p>{translate key="user.register.alreadyRegisteredOtherJournal" registerUrl=$url}</p>
@@ -27,6 +27,10 @@
 		<input type="hidden" name="existingUser" value="1"/>
 	{/if}
 
+	<p><a href="{url page="login" op="implicitAuthLogin"}">{translate key="user.login.institutionalCredentials"}</a>
+            if you have an existing Australian educational institution account.
+	</p>
+
 	<h3>{translate key="user.profile"}</h3>
 
 	{include file="common/formErrors.tpl"}
@@ -34,7 +38,7 @@
 	{if $existingUser}
 		<p>{translate key="user.register.loginToRegister"}</p>
 	{/if}
-{/if}{* !$implicitAuth *}
+{/if}
 
 {if $source}
 	<input type="hidden" name="source" value="{$source|escape}" />
@@ -52,7 +56,7 @@
 	</tr>
 {/if}{* count($formLocales) > 1 && !$existingUser *}
 
-{if !$implicitAuth}
+{if !$isUserLoggedIn}
 	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="username" required="true" key="user.username"}</td>
 		<td width="80%" class="value"><input type="text" name="username" value="{$username|escape}" id="username" size="20" maxlength="32" class="textField" /></td>
@@ -210,7 +214,7 @@
 			</tr>
 		{/if}{* count($availableLocales) > 1 *}
 	{/if}{* !$existingUser *}
-{/if}{* !$implicitAuth *}
+{/if}{* !$isLoggedIn *}
 
 {if $allowRegReader || $allowRegReader === null || $allowRegAuthor || $allowRegAuthor === null || $allowRegReviewer || $allowRegReviewer === null || ($currentJournal && $currentJournal->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_SUBSCRIPTION && $enableOpenAccessNotification)}
 	<tr valign="top">
@@ -233,9 +237,7 @@
 <br />
 <p><input type="submit" value="{translate key="user.register"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="index" escape=false}'" /></p>
 
-{if ! $implicitAuth}
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-{/if}{* !$implicitAuth *}
 
 <div id="privacyStatement">
 {if $privacyStatement}

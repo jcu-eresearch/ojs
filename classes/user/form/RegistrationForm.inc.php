@@ -43,8 +43,8 @@ class RegistrationForm extends Form {
 		parent::Form('user/register.tpl');
 		$this->implicitAuth = Config::getVar('security', 'implicit_auth');
 
-		if ($this->implicitAuth) {
-			// If implicit auth - it is always an existing user
+		if (Validation::isLoggedIn()) {
+			// If logged in
 			$this->existingUser = 1;
 		} else {
 			$this->existingUser = Request::getUserVar('existingUser') ? 1 : 0;

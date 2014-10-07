@@ -78,19 +78,22 @@ class RegistrationHandler extends UserHandler {
 
 		if ($regForm->validate()) {
 			$regForm->execute();
-			if (Config::getVar('email', 'require_validation')) {
-				// Send them home; they need to deal with the
-				// registration email.
-				$request->redirect(null, 'index');
-			}
+                        if (!Validation::isLoggedIn()) {
+				if (Config::getVar('email', 'require_validation')) {
+					// Send them home; they need to deal with the
+					// registration email.
+					$this->setupTemplate($request, true);
+					$templateMgr =& TemplateManager::getManager();
+					$templateMgr->assign('pageTitle', 'user.register.emailValidation');
+					$templateMgr->assign('errorMsg', 'user.register.emailValidationDescription');
+					$templateMgr->assign('backLink', $request->url(null, 'login'));
+					$templateMgr->assign('backLinkLabel', 'user.login');
+					$templateMgr->display('common/error.tpl');
+				}
 
-			$reason = null;
-
-			if (Config::getVar('security', 'implicit_auth')) {
-				Validation::login('', '', $reason);
-			} else {
 				Validation::login($regForm->getData('username'), $regForm->getData('password'), $reason);
 			}
+			$reason = null;
 
 			if ($reason !== null) {
 				$this->setupTemplate($request, true);
