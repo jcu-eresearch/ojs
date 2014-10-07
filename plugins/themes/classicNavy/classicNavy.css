@@ -73,7 +73,7 @@ input.defaultButton {
 	color:  #fff;
 }
 
-#footerContent {
+#footerContent, #footer a:link, #footer a:visited {
 	color:  #fff;
 }
 

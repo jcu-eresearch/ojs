@@ -81,7 +81,7 @@ input.defaultButton {
 	padding: 15px;
 }
 
-#footerContent {
+#footerContent, #footer a:link, #footer a:visited {
 	color:  #ffffff;
 }
 
