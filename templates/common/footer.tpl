@@ -20,10 +20,6 @@
 		{assign var=pageFooter value="$issnText: $issn"}
 	{/if}
 {/if}
-{include file="core:common/footer.tpl"}
+{include file="common/footerBase.tpl"}
 {/strip}
 
-<div id="footer" style="padding:1em 0;font-size:0.7em;">
-   <p><a href="{url journal='index'}">See all JCU Journals</a>. Hosted by the <a href="https://eresearch.jcu.edu.au">JCU eResearch Centre</a>.</p>
-   <p><a href="#container">Back to top</a></p>
-</div>
