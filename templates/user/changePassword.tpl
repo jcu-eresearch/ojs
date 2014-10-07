@@ -19,6 +19,7 @@
 
 {include file="common/formErrors.tpl"}
 
+<p><span class="instruct">If you have logged in via your institutional credentials, contact your educational institute if you need to change your password.  For local users, continue below.</span></p>
 <p><span class="instruct">{translate key="user.profile.changePasswordInstructions"}</span></p>
 
 <table class="data" width="100%">

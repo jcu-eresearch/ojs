@@ -227,9 +227,7 @@
 	{/if}
 	<li>&#187; <a href="{url page="user" op="profile"}">{translate key="user.editMyProfile"}</a></li>
 
-	{if !$implicitAuth}
 		<li>&#187; <a href="{url page="user" op="changePassword"}">{translate key="user.changeMyPassword"}</a></li>
-	{/if}
 
 	{if $currentJournal}
 		{if $journalPaymentsEnabled && $membershipEnabled}
