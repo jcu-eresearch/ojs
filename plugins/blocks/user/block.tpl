@@ -9,9 +9,7 @@
  *
  *}
 <div class="block" id="sidebarUser">
-	{if !$implicitAuth}
 		<span class="blockTitle">{translate key="navigation.user"}</span>
-	{/if}
 
 	{if $isUserLoggedIn}
 		{translate key="plugins.block.user.loggedInAs"}<br />
@@ -28,8 +26,11 @@
 		</ul>
 	{else}
 		{if $implicitAuth}
-			<a href="{url page="login" op="implicitAuthLogin"}">Journals Login</a>
-		{else}
+                        <h3>Institutional Login</h3>
+			<a href="{url page="login" op="implicitAuthLogin"}">{translate key="user.login.institutionalCredentials"}</a>
+                        <h3>Local Account Login</h3>
+
+		{/if}
 			<form method="post" action="{$userBlockLoginUrl}">
 				<table>
 					<tr>
@@ -48,6 +49,5 @@
 					</tr>
 				</table>
 			</form>
-		{/if}
 	{/if}
 </div>
