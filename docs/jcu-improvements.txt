@@ -1,6 +1,7 @@
+* Change favicon
 
 * Allow login via local accounts and Shibboleth authentication, simultaneously
-  
+
   * Change locations where implicit_auth checks and implicitAuth variables exist
 
 * Add implicit auth login links (for Shibboleth login) to:
