@@ -1,3 +1,6 @@
+* Add Google Analytics site-wide.  This allows journals to configure their own,
+  but we still track them.
+
 * Change favicon
 
 * Allow login via local accounts and Shibboleth authentication, simultaneously

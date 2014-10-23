@@ -27,5 +27,15 @@
    <p><a href="{url journal='index'}">See all JCU Journals</a>. Hosted by the <a href="https://eresearch.jcu.edu.au">JCU eResearch Centre</a>.</p>
    <p><a href="#container">Back to top</a></p>
 </div>
+<script>
+{literal}
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2604673-21', 'auto');
+ga('send', 'pageview');
+{/literal}
+</script>
 </body>
 </html>
