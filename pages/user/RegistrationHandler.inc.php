@@ -85,10 +85,7 @@ class RegistrationHandler extends UserHandler {
 			}
 
 			$reason = null;
-
-			if (Config::getVar('security', 'implicit_auth')) {
-				Validation::login('', '', $reason);
-			} else {
+			if (!Validation::isLoggedIn()) { //Implicit auth users will already be logged in
 				Validation::login($regForm->getData('username'), $regForm->getData('password'), $reason);
 			}
 

@@ -9,7 +9,7 @@
  *
  *}
 <div class="block" id="sidebarUser">
-	{if !$implicitAuth}
+	{if !$implicitAuth || $implicitAuth === 'Optional'}
 		<span class="blockTitle">{translate key="navigation.user"}</span>
 	{/if}
 
@@ -27,9 +27,16 @@
 			{/if}
 		</ul>
 	{else}
+		{if $implicitAuth === 'Optional'}
+			<h3>{translate key="user.login.implicitAuth"}</h3>
+		{/if}
 		{if $implicitAuth}
-			<a href="{url page="login" op="implicitAuthLogin"}">Journals Login</a>
-		{else}
+			<a href="{url page="login" op="implicitAuthLogin"}">{translate key="user.login.implicitAuthLogin"}</a>
+			{if $implicitAuth === 'Optional'}
+				<h3>{translate key="user.login.localAuth"}</h3>
+			{/if}
+		{/if}
+		{if !$implicitAuth || $implicitAuth === 'Optional'}
 			<form method="post" action="{$userBlockLoginUrl}">
 				<table>
 					<tr>

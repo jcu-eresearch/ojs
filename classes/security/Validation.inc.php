@@ -19,7 +19,7 @@ class Validation {
 
 	/**
 	 * Authenticate user credentials and mark the user as logged in in the current session.
-	 * @param $username string
+	 * @param $username string authenticating user's id; null if implicit auth is happening
 	 * @param $password string unencrypted password
 	 * @param $reason string reference to string to receive the reason an account was disabled; null otherwise
 	 * @param $remember boolean remember a user's session past the current browser session
@@ -32,7 +32,7 @@ class Validation {
 		$valid = false;
 		$userDao =& DAORegistry::getDAO('UserDAO');
 
-		if ($implicitAuth) { // Implicit auth
+		if ($implicitAuth && !$username) { // Implicit auth, and not regular auth
 			if (!Validation::isLoggedIn()) {
 				PluginRegistry::loadCategory('implicitAuth');
 
