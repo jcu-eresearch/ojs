@@ -105,11 +105,11 @@ function updateAbstractRequired() {
 				{assign var=currentYear value=$smarty.now|date_format:"%Y"}
 				{if $datePublished}
 					{assign var=publishedYear value=$datePublished|date_format:"%Y"}
-					{math|assign:"minYear" equation="min(x,y)-10" x=$publishedYear y=$currentYear}
+					{math|assign:"minYear" equation="min(x,y)-100" x=$publishedYear y=$currentYear}
 					{math|assign:"maxYear" equation="max(x,y)+2" x=$publishedYear y=$currentYear}
 				{else}
 					{* No issue publication date info *}
-					{math|assign:"minYear" equation="x-10" x=$currentYear}
+					{math|assign:"minYear" equation="x-100" x=$currentYear}
 					{math|assign:"maxYear" equation="x+2" x=$currentYear}
 				{/if}
 				{html_select_date prefix="datePublished" time=$datePublished|default:"---" all_extra="class=\"selectMenu\"" start_year=$minYear end_year=$maxYear year_empty="common.year"|translate month_empty="common.month"|translate day_empty="common.day"|translate}
