@@ -236,7 +236,8 @@
 	<message key="user.orcid">ORCID iD</message>
 	<message key="user.orcid.description"><![CDATA[ORCID iDs can only be assigned by <a href="http://orcid.org/" target="_blank">the ORCID Registry</a>. You must conform to their standards for expressing ORCID iDs, and include the full URI (eg. <em>http://orcid.org/0000-0002-1825-0097</em>).]]></message>
 	<message key="user.profile.form.orcidInvalid">The ORCID iD you specified is invalid.</message>
-	<message key="user.profile.implicitAuthChangePasswordInstructions">If you have logged in via your Shibboleth, follow your organization's process if you need to change your password.  For local users, continue below.</message>
+	<message key="user.login.implicitAuth">Institutional Login</message>
+	<message key="user.profile.implicitAuthChangePasswordInstructions">If you have logged in via your institutional credentials, follow your organisation's process if you need to change your password.  For local users, continue below.</message>
 
 	<!-- Roles -->
 	<message key="user.role.manager">Journal Manager</message>
@@ -732,7 +733,7 @@ Active is how many reviews are currently being considered or underway.]]></messa
 	<message key="user.login.registerNewAccount">Not a user? Register with this site</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[For security reasons, this system emails a reset password to registered users, rather than recalling the
 current password.<br /><br />Enter your email address below to reset your password. A confirmation will be sent to this email address.]]></message>
-	<message key="user.login.implicitAuthLogin">Login via Shibboleth</message>
+	<message key="user.login.implicitAuthLogin">Login with Australian institution credentials (AAF)</message>
 
 	<!-- Registration -->
 	<message key="user.register.emailValidation">Email Validation Required</message>
